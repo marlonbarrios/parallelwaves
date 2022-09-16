@@ -62,7 +62,7 @@ function draw (){
   for (let y = 0; y < rows; y++) {
     // Determine the Y position of the line
     const v = rows <= 1 ? 0.5 : y / (rows - 1);
-    const py = v * height;
+    const py = v * height + 150;
 
   
     drawNoiseLine({

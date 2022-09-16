@@ -1,9 +1,5 @@
 var song
 var fft
-var particles = []
-
-
-
 
 let dragging = false;
 let minFrequency = 0.1;
@@ -22,13 +18,9 @@ const simplex = new SimplexNoise();
 // Create a new canvas to the browser size
 function setup () {
   createCanvas(windowWidth, windowHeight);
-  // Create an Audio input
-
-
-  // start the Audio Input.
-  // By default, it does not .connect() (to the computer speakers)
  
-  
+ 
+
   mouseX = width / 2;
   mouseY = height / 2;
 }
@@ -36,22 +28,22 @@ function setup () {
 // On window resize, update the canvas size
 function windowResized () {
   resizeCanvas(windowWidth, windowHeight);
-  background(230, 30);
+  background(30, 40);
 }
 
 // Render loop that draws shapes with p5
 function draw (){
-  background(230, 30);
+  background(30, 40);
 
  
   const frequency = lerp(minFrequency, maxFrequency, mouseX / width);
-  const amplitude = lerp(minAmplitude, maxAmplitude, mouseY / height);
+  const amplitude = lerp(minAmplitude, maxAmplitude, 300 / height);
   
   const dim = Math.min(width, height);
   
   // Draw the background
  noFill();
-  stroke(0);
+  stroke(255,8, 0);
   strokeWeight(dim * 0.0015);
 
   
@@ -74,19 +66,19 @@ function draw (){
       time: time * 0.5,
       steps: 150
     });
-    if(mouseX >width/2){
-      drawNoiseLine({
-      v,
-      start: [ 0, py ],
-      end: [ width, py ],
-      amplitude: amplitude * height,
-      frequency,
-      time: time * -0.5,
-      steps: 150
-    });
+    // if(mouseX >width/2){
+    //   drawNoiseLine({
+    //   v,
+    //   start: [ 0, py ],
+    //   end: [ width, py ],
+    //   amplitude: amplitude * height,
+    //   frequency,
+    //   time: time * -0.5,
+    //   steps: 150
+    // });
     }
   }
-}
+
 
 function drawNoiseLine (opt = {}) {
   const {
@@ -94,7 +86,7 @@ function drawNoiseLine (opt = {}) {
     start,
     end,
     steps = 10,
-    frequency = 1,
+    frequency = 2,
     time = 0,
     amplitude = 1
   } = opt;

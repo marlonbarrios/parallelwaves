@@ -3,8 +3,8 @@ var fft
 
 let dragging = false;
 let minFrequency = 0.1;
-let maxFrequency = 2;
-let minAmplitude = 0.05;
+let maxFrequency = 3;
+let minAmplitude = 0.1;
 let maxAmplitude = 0.5;
 
 let amplitude;
@@ -28,23 +28,24 @@ function setup () {
 // On window resize, update the canvas size
 function windowResized () {
   resizeCanvas(windowWidth, windowHeight);
-  background(30, 40);
+  background(30, 20);
 }
 
 // Render loop that draws shapes with p5
 function draw (){
-  background(30, 40);
+  background(238, 245, 219, 20);
 
  
   const frequency = lerp(minFrequency, maxFrequency, mouseX / width);
-  const amplitude = lerp(minAmplitude, maxAmplitude, mouseY / height);
+  const amplitude = lerp(minAmplitude, maxAmplitude, mouseY/ height);
   
   const dim = Math.min(width, height);
   
   // Draw the background
- noFill();
-  stroke(255,8, 0);
-  strokeWeight(dim * 0.0015);
+fill('#E63462');
+background(238, 245, 219, 20);
+  stroke( 51, 100, 153);
+  strokeWeight(dim * 0.009);
 
   
   const time = millis() / 3000;

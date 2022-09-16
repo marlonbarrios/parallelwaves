@@ -37,7 +37,7 @@ function draw (){
 
  
   const frequency = lerp(minFrequency, maxFrequency, mouseX / width);
-  const amplitude = lerp(minAmplitude, maxAmplitude, 300 / height);
+  const amplitude = lerp(minAmplitude, maxAmplitude, mouseY / height);
   
   const dim = Math.min(width, height);
   
@@ -66,18 +66,19 @@ function draw (){
       time: time * 0.5,
       steps: 150
     });
-    // if(mouseX >width/2){
-    //   drawNoiseLine({
-    //   v,
-    //   start: [ 0, py ],
-    //   end: [ width, py ],
-    //   amplitude: amplitude * height,
-    //   frequency,
-    //   time: time * -0.5,
-    //   steps: 150
-    // });
+    if(mouseX >width/2){
+      drawNoiseLine({
+      v,
+      start: [ 0, py ],
+      end: [ width, py ],
+      amplitude: amplitude * height,
+      frequency,
+      time: time * -0.5,
+      steps: 150
+    });
     }
   }
+}
 
 
 function drawNoiseLine (opt = {}) {
